@@ -4,11 +4,11 @@ using UnityEngine;
 
 namespace AdrianGaborek.SpellSystem
 {
-    public partial class SSSpellEditor : EditorWindow
+    public partial class SpellEditor : EditorWindow
     {
-        private SSSpellDatabaseType<SSBuffDatabase, SSBuff> _buffDatabase = new SSSpellDatabaseType<SSBuffDatabase, SSBuff>("SSBuffDatabase.asset");
-        private SSSpellDatabaseType<SSBoltDatabase, SSBolt> _boltDatabase = new SSSpellDatabaseType<SSBoltDatabase, SSBolt>("SSBoltDatabase.asset");
-        private SSSpellDatabaseType<SSAoeDatabase, SSAoe> _aoeDatabase = new SSSpellDatabaseType<SSAoeDatabase, SSAoe>("SSAoEDatabase.asset");
+        private SpellDatabaseType<BuffDatabase, Buff> _buffDatabase = new SpellDatabaseType<BuffDatabase, Buff>("BuffDatabase.asset");
+        private SpellDatabaseType<BoltDatabase, Bolt> _boltDatabase = new SpellDatabaseType<BoltDatabase, Bolt>("BoltDatabase.asset");
+        private SpellDatabaseType<AoeDatabase, Aoe> _aoeDatabase = new SpellDatabaseType<AoeDatabase, Aoe>("AoEDatabase.asset");
 
         private Vector2 _buttonSize = new Vector2(190, 25);
         private int _listViewWidth = 200;

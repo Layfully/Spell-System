@@ -2,7 +2,7 @@
 
 namespace AdrianGaborek.SpellSystem
 {
-    public partial class SSSpellEditor
+    public partial class SpellEditor
     {
         private enum TabState
         {

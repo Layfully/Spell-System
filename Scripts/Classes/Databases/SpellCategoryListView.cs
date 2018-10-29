@@ -8,7 +8,7 @@ using UnityEngine;
 
 namespace AdrianGaborek.SpellSystem
 {
-    public partial class SSSpellDatabaseType<D, T> where D : ScriptableObjectDatabase<T> where T : SSSpell, new()
+    public partial class SpellDatabaseType<D, T> where D : ScriptableObjectDatabase<T> where T : Spell, new()
     {
         private int _selectedIndex = -1;                    //-1 means that we have nothing currently selected.
         private T _temporaryItem;                         //A temporal holder for the item we are currently working on.

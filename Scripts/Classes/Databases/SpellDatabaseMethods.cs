@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace AdrianGaborek.SpellSystem
 {
-    public partial class SSSpellDatabaseType<D, T> where D : ScriptableObjectDatabase<T> where T : SSSpell, new()
+    public partial class SpellDatabaseType<D, T> where D : ScriptableObjectDatabase<T> where T : Spell, new()
     {
         private void LoadDatabase()
         {

@@ -9,23 +9,23 @@ using UnityEditor;
 namespace AdrianGaborek.SpellSystem
 {
     [Serializable]
-    public class SSAoe : SSBolt, ISSAoe
+    public class Aoe : Bolt, IAoe
     {
         [SerializeField] private float _aoeRange;
         [SerializeField] private float _aoeDamage;
 
-        public SSAoe()
+        public Aoe()
         {
             _aoeRange = 1;
             _aoeDamage = 1;
         }
 
-        public SSAoe(SSAoe spell)
+        public Aoe(SSAoe spell)
         {
             Clone(spell);
         }
 
-        public void Clone(SSAoe aoe)
+        public void Clone(Aoe aoe)
         {
             base.Clone(aoe);
 
@@ -33,7 +33,7 @@ namespace AdrianGaborek.SpellSystem
             AoeDamage = aoe.AoeDamage;
         }
 
-        #region ISSAoe implementation
+        #region IAoe implementation
         public float AoeRange
         {
             get { return _aoeRange; }

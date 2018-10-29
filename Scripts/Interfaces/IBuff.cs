@@ -1,6 +1,6 @@
 ﻿namespace AdrianGaborek.SpellSystem
 {
-    public interface ISSBuff
+    public interface IBuff
     {
         int BuffValue { get; set; }   
         float Duration { get; set; }

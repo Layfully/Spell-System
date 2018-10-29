@@ -5,7 +5,7 @@ using UnityEngine;
 namespace AdrianGaborek.SpellSystem
 {
     [Serializable]
-    public abstract class SSSpell : ISSSpell {
+    public abstract class Spell : ISpell {
         public abstract string Name { get; set; }
         public abstract string Description { get; set; }
         public abstract Sprite Icon { get; set; }
@@ -14,7 +14,7 @@ namespace AdrianGaborek.SpellSystem
         public abstract float CooldownTimer { get; set; }
         public abstract bool Ready { get; }
 
-        public abstract void Clone(ISSSpell spell);
+        public abstract void Clone(ISpell spell);
 
         public virtual void OnGUI()
         {

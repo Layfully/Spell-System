@@ -2,7 +2,7 @@
 
 namespace AdrianGaborek.SpellSystem
 {
-    public interface ISSSpell
+    public interface ISpell
     {
         string Name { get; set; }
         string Description { get; set; }
@@ -12,7 +12,7 @@ namespace AdrianGaborek.SpellSystem
         float CooldownTimer { get; set; }
         bool Ready { get; }
 
-        void Clone(ISSSpell spell);
+        void Clone(ISpell spell);
         void Update();
     }
 }

@@ -1,15 +1,11 @@
-﻿using System;
-using UnityEngine;
-#region using UnityEditor;
-#if UNITY_EDITOR
-using UnityEditor;
-#endif
-#endregion
-
-namespace AdrianGaborek.SpellSystem
+﻿namespace AdrianGaborek.SpellSystem
 {
+    using System;
+    using UnityEditor;
+    using UnityEngine;
+
     [Serializable]
-    public sealed class SSBuff : SSSpell, ISSBuff
+    public class Bolt : Spell, IBolt
     {
         [SerializeField] private string _name;
         [SerializeField] private string _description;
@@ -18,27 +14,27 @@ namespace AdrianGaborek.SpellSystem
         [SerializeField] private float _cooldown;
         private float _cooldownTimer;
         private bool _ready;
-        [SerializeField] private int _buffValue;
-        [SerializeField] private float _duration;
+        [SerializeField] private float _damage;
+        [SerializeField] private float _spellRange;
 
-        public SSBuff()
+        public Bolt()
         {
             _name = "Name Me";
             _description = "Describe Me";
             _icon = Sprite.Create(null, new Rect(), Vector2.zero);
             _lineOfSight = false;
             _cooldown = 1;
-            _buffValue = 1;
-            _duration = 1;
+            _damage = 1;
+            _spellRange = 1;
             _ready = true;
         }
 
-        public SSBuff(SSBuff buff)
+        public Bolt(Bolt bolt)
         {
-            Clone(buff);
+            Clone(bolt);
         }
 
-        #region SSSpell implementation
+        #region Spell implementation
         public override string Name
         {
             get { return _name; }
@@ -80,37 +76,36 @@ namespace AdrianGaborek.SpellSystem
             get { return _ready; }
         }
 
-        public override void Clone(ISSSpell spell)
+        public sealed override void Clone(ISpell spell)
         {
-            SSBuff tempBuff = (SSBuff)spell;
+            Bolt tempBolt = (Bolt)spell;
 
-            Name = tempBuff.Name;
-            Description = tempBuff.Description;
-            Icon = tempBuff.Icon;
-            LineOfSight = tempBuff.LineOfSight;
-            Cooldown = tempBuff.Cooldown;
-            BuffValue = tempBuff.BuffValue;
-            Duration = tempBuff.Duration;
+            Name = tempBolt.Name;
+            Description = tempBolt.Description;
+            Icon = tempBolt.Icon;
+            LineOfSight = tempBolt.LineOfSight;
+            Cooldown = tempBolt.Cooldown;
+            Damage = tempBolt.Damage;
+            SpellRange = tempBolt.SpellRange;
         }
 
         public override void Update()
         {
-            throw new System.NotImplementedException();
+            throw new NotImplementedException();
         }
-
         #endregion
 
-        #region IISBuff implementation
-        public int BuffValue
+        #region IBolt implementation
+        public float Damage
         {
-            get { return _buffValue; }
-            set { _buffValue = value; }
+            get { return _damage; }
+            set { _damage = value; }
         }
 
-        public float Duration
+        public float SpellRange
         {
-            get { return _duration; }
-            set { _duration = value; }
+            get { return _spellRange; }
+            set { _spellRange = value; }
         }
         #endregion
 
@@ -120,8 +115,8 @@ namespace AdrianGaborek.SpellSystem
         {
             base.OnGUI();
 
-            BuffValue = EditorGUILayout.IntField("Max buff value", BuffValue);
-            Duration = EditorGUILayout.FloatField("Buff duration", Duration);
+            Damage = EditorGUILayout.FloatField("Damage", Damage);
+            SpellRange = EditorGUILayout.FloatField("Range", SpellRange);
         }
         #endif
         #endregion
